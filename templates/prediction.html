@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<div lang="en">
+<head>
+  <title>Bootstrap Example</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <style>
+  body {
+    font: 15px Montserrat, sans-serif;
+    line-height: 1.8;
+    color:#000000;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 27px;}
+  .bg-1 {
+    background-color: #000000; /* Green */
+    color: #ffffff;
+  }
+  .bg-2 {
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+  }
+  .bg-3 {
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-4 {
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+  }
+  .container-fluid {
+    padding-top: 02px;
+    padding-bottom: 20px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #FF0000 !important;
+  }
+  </style>
+
+</head>
+<center style="background-color:#A9A9A9">
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">HOME</a></li>
+        <li><a href="upload">UPLOAD_FILE</a></li>
+        <li><a href="view">VIEW_DATA</a></li>
+
+        <li><a href="split">SPLIT_DATA</a></li>
+
+        <li><a href="select">SELECT_MODEL</a></li>
+
+        <li><a href="prediction">PREDICTION</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <h3 align="center" style="color:blue">PREDICT THE OUTCOME</h3><br><br>
+
+</head>
+<div>
+
+
+
+        {% if msg=="unsuccess" %}
+         <center>
+        <div class="container">
+           <div class="alert alert-danger" class="mx-auto" style="width: 200px; height:80;" >
+             <strong>Warning!!!</strong>Upload The Dataset To Predict!!
+         </center>
+         </div></div>
+          {% else %}
+
+          <div class="container">
+       <form action="/prediction" method="POST" enctype="multipart/form-data">
+      <input type="text" Name="Gender" placeholder="Gender">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input type="text" Name="Married" placeholder="Married"><br><br>
+
+      <input type="text" Name="Education" placeholder="Education">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input type="text" Name="Self_Employed" placeholder="Self_Employed"><br><br>
+
+      <input type="text" Name="Applicant_Income" placeholder="Applicant_Income">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input type="text" Name="Coapplicant_Income" placeholder="Coapplicant_Income"><br><br>
+
+      <input type="text" Name="LoanAmount" placeholder="LoanAmount">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input type="text" Name="Loan_Amount_Term" placeholder="Loan_Amount_Term"><br><br>
+
+      <input type="text" Name="Credit_History" placeholder="Credit_History">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input type="text" Name="Property_Area" placeholder="Property_Area"><br><br>
+      <input type="submit" value="SUBMIT" style="color:blue">
+    </form>
+
+          {% if msg=="success" %}
+         <align="center">
+
+        <div class="container">
+         <div class="alert alert-Success" class="mx-auto" style="width: 200px; height:80;" >
+             <strong>Success!!</strong>Model Predicted.</div></div>
+
+
+           {% if op==[1] %}
+           <div class="alert alert-info" style="width:500px">
+
+              <h5>Eligible For Loan!</h5></div>
+
+
+           {% else %}
+           <div class="alert alert-info" style="width:500px">
+
+              <h5>Not Eligible For Loan!</h5></div>
+
+           {% endif %}
+
+           {% endif %}
+
+
+
+
+           {% endif %}
+           </center>
+           </div>
+
+
+
+</div>
+
+
+
+</center>
+
+</body>
+</html>

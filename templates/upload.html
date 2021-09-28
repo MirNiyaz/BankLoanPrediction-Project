@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+     <style>
+  body {
+    font: 15px Montserrat, sans-serif;
+    line-height: 1.8;
+    color:#00ff00;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 27px;}
+  .bg-1 {
+    background-color: #000000; /* Green */
+    color: #ffffff;
+  }
+  .bg-2 {
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+  }
+  .bg-3 {
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-4 {
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+  }
+  .container-fluid {
+    padding-top: 02px;
+    padding-bottom: 20px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #FF0000 !important;
+  }
+  </style>
+
+</head>
+<body style="background-color:#A9A9A9">
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">HOME</a></li>
+        <li><a href="upload">UPLOAD_FILE</a></li>
+        <li><a href="view">VIEW_DATA</a></li>
+
+        <li><a href="split">SPLIT_DATA</a></li>
+
+        <li><a href="select">SELECT_MODEL</a></li>
+
+        <li><a href="prediction">PREDICTION</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</nav>
+
+<br><h1 align="center" style="color:blue">UPLOAD THE DATASET</h1><br>
+
+
+
+<div align="center">
+    <center>
+        <form action="/uploadfile" method="POST" enctype="multipart/form-data" >
+            <label style="color:red">Choose DataSet:</label>
+            <table border="1" align="center"><tr><td style="background-color:black" align="left" ><p><input type="file" name="file"></p></td></tr></table>
+            <br>
+            <input type="submit" value="Upload" style="color:blue">
+
+        </form><br><br><br>
+
+
+        {% if msg=="success" %}
+        <div class="container">
+        <div class="alert alert-success" class="mx-auto" style="width: 200px; height:80px;">
+        <strong>Success!</strong> Uploaded Successfully!!
+         </div></div>
+
+          {% elif msg=="unsuccess" %}
+        <div class="container">
+         <div class="alert alert-danger" class="mx-auto" style="width: 200px; height:80;" >
+          <strong>Warning!!!</strong>Upload File First.!!
+         </div></div>
+
+
+
+         {% endif %}
+          </center>
+
+
+</div>
+
+</body>
+</html>
